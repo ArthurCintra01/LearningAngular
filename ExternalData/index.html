@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Learn and Understand AngularJS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1em;
+            }
+        </style>
+        
+        <!-- load angular via CDN -->
+        <script src="https://code.angularjs.org/1.8.2/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+
+            <div ng-controller="mainController">
+            
+                <div>
+                    <label>What is your twitter handle?</label>
+                    <input type="text" ng-model="handle" />
+                </div>
+                <!-- <div class="alert" ng-if="handle.length !== characters">
+                    must be 5 characters
+                </div> -->
+                <!-- does the same thing as ng-if but it hides and shows instead of deleting and adding -->
+                <!-- it also exists the ng-hide wich does the opposite -->
+                <div class="alert" ng-class="{ 'alert-warning': handle.length < characters,
+                'alert-danger': handle.length > characters}">
+
+                    <div ng-show="handle.length < characters">
+                        you have less than 5 characters
+                    </div>
+                    
+                    <div ng-show="handle.length > characters">
+                        you have more than 5 characters
+                    </div>
+                </div>
+                <hr/>
+                <h1>twitter.com/{{ lowercasehandle() }}</h1>
+                
+                <h3>Rules</h3>
+                <ul>
+                    <!-- directive ng-repeat creates a loop in html based on a scope list -->
+                    <li ng-repeat= "rule in rules"> <!-- rules is a scope variable list in the app.js -->
+                        {{ rule.rulename }}
+                    </li>
+                </ul>
+                <!-- input to post data into a database using an api -->
+                Add rule: <input type="text" ng-model="newRule"/><a href="#" class="btn btn-default" ng-click="addRule()">Add</a>
+            </div>   
+		</div>
+    </body>
+</html>
