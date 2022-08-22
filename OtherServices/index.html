@@ -17,7 +17,11 @@
         </style>
         
         <!-- load angular via CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.8.2/angular.js"></script>
+        <!-- angular messages module -->
+        <script src ="https://code.angularjs.org/1.8.2/angular-messages.min.js"></script>
+        <!-- angular resource module -->
+        <script src="https://code.angularjs.org/1.8.2/angular-resource.min.js"></script>
         <script src="app.js"></script>
     </head>
     <body>
@@ -39,8 +43,18 @@
         <div class="container">
 
             <div ng-controller="mainController">
-            
-                <h1>Hello world!</h1>
+                <!-- using ngMessages for form validation -->
+                <!-- <form name="myForm">
+                    <input type="text" ng-model="field" name="myField" required minlength="5"/>
+                    <pre>myForm.myField.$error = {{ myForm.myField.$error | json }}</pre>
+                    <div ng-messages="myForm.myField.$error">
+                    <div ng-message="required">
+                        you did not enter a field
+                    </div>
+                    <div ng-message="minlength">
+                        The value entered is too short
+                    </div>
+                </form> -->
                 
             </div>
             
