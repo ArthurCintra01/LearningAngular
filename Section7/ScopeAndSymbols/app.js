@@ -21,6 +21,11 @@ myApp.config(function ($routeProvider){
 // main controller
 myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
     
+    $scope.person = {
+        name: 'Arthur Cintra',
+        address: '555 Main St., New York, NY 11111'
+    }
+
 }]);
 
 // second controller
@@ -36,6 +41,10 @@ myApp.directive("searchResult", function(){
         // M - Comments
         restrict: 'AE', // restricted to Atributes(A) and Elements(E) - this is the default setting
         templateUrl: 'directives/searchresult.html', // using a local template inside my directives folder
-        replace: true //replaces de tag in the html with the template instead of just putting inside the tag
+        replace: true, //replaces de tag in the html with the template instead of just putting inside the tag
+        scope: { // isolated the scope so the directive doesnt have acess to the main controller scope
+            personName: "@", // @ means text (grab the text from this atribute) we can also use @personName, but we can put it just @ cause of the name of the var
+            personAddress: "@"
+        }
     }
 })

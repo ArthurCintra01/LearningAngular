@@ -3,17 +3,6 @@
 
 <h3>Search Results</h3>
 <div class="list-group">
-    <!-- calling the directive i created in app (normalized) -->
-    <search-result></search-result>
-    <search-result></search-result>
-    <!-- calling by element -->
-    <search-result></search-result> 
-    <!-- calling by atribute -->
-    <div search-result></div>
-    <!-- they both achieve the same thing (considering no restrictions in the directive) -->
-
-    
-    <!-- Other types that are not in the directive by default -->
-    <!-- <div class="search-result"></div> -->
-    <!-- directive: search-result -->
+    <!-- giving an atribute to the directive coming from the main controller so we can use it inside the directive scope -->
+    <search-result person-name="{{ person.name }}" person-address="{{ person.address }}"></search-result>
 </div>
