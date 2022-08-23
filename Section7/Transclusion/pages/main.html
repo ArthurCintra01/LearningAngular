@@ -1,0 +1,11 @@
+<label>Search</label>
+<input type="text" value="Doe" />
+
+<h3>Search Results</h3>
+<div class="list-group">
+    <!-- passing the entire object as atribute -->
+    <search-result ng-repeat="person in people" person-object="person" formatted-address-function="formattedAddress(person)">
+        *search results may not be valid
+    </search-result>
+    <!-- repeating the directive for each person in people array -->
+</div>

@@ -72,14 +72,6 @@ myApp.directive("searchResult", function(){
             // it also gives the directive scope acess to the object's atributes
             formattedAddressFunction: "&" // to tell it is a function
         },
-        link: function(scope, elements, attrs) { // this runs everytime i bind the directive to a new scope
-            console.log('Linking...');
-            console.log(scope);
-            if (scope.personObject.name == "Kobe Bryant"){ // finds the second scope instance (when the name is kobe bryant)
-                elements.removeAttr('class'); // removes the atribute class from the directive with this scope
-                //result: only kobe bryant part has no styling
-            }
-            console.log(elements);
-        }
+        transclude: true // to enable transclusion (write stuff from the page inside the directive)
     }
 })
