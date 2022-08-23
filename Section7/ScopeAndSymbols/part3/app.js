@@ -23,7 +23,15 @@ myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
     
     $scope.person = {
         name: 'Arthur Cintra',
-        address: '555 Main St., New York, NY 11111'
+        address: '555 Main St.',
+        city: 'New York',
+        state: 'NY',
+        zip: '11111'
+    }
+    $scope.formattedAddress = function(person) {
+
+        return person.address + ', ' + person.city + ', ' + person.state + ' ' + person.zip;
+
     }
 
 }]);
@@ -43,8 +51,9 @@ myApp.directive("searchResult", function(){
         templateUrl: 'directives/searchresult.html', // using a local template inside my directives folder
         replace: true, //replaces de tag in the html with the template instead of just putting inside the tag
         scope: { // isolated the scope so the directive doesnt have acess to the main controller scope
-            personName: "@", // @ means text (grab the text from this atribute) we can also use @personName, but we can put it just @ cause of the name of the var
-            personAddress: "@"
+            personObject: "=", // = means "two way biding, any changes you make to the object inside the html he aplies to the actual object"
+            // it also gives the directive scope acess to the object's atributes
+            formattedAddressFunction: "&" // to tell it is a function
         }
     }
 })
