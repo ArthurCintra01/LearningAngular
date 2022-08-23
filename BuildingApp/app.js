@@ -19,7 +19,7 @@ myApp.service('cityService', function(){
 })
 
 // homepage controller
-myApp.controller('homeController', ['$scope', '$log','cityService', function($scope, $log, cityService) {
+myApp.controller('homeController', ['$scope','cityService', function($scope, cityService) {
     $scope.city = cityService.city; 
 
     $scope.$watch('city', function(){
@@ -28,6 +28,12 @@ myApp.controller('homeController', ['$scope', '$log','cityService', function($sc
 }]);
 
 // forecast controller
-myApp.controller('forecastController', ['$scope', '$log', 'cityService', function($scope, $log, cityService) {
+myApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService) {
     $scope.city = cityService.city;
+
+    $scope.weatherAPI = $resource("http://api.weatherapi.com/v1/forecast.json?key=b403b91067474db092e7868468bcbc1a", { callback: "JSON_CALLBACK" },+'&'+ { get: { method: "JSONP" }});
+
+    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city});
+
+    console.log($scope.weatherResult);
 }]);
