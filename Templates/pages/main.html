@@ -1,0 +1,19 @@
+<label>Search</label>
+<input type="text" value="Doe" />
+
+<h3>Search Results</h3>
+<div class="list-group">
+    <!-- calling the directive i created in app (normalized) -->
+    <search-result></search-result>
+    <search-result></search-result>
+    <!-- calling by element -->
+    <search-result></search-result> 
+    <!-- calling by atribute -->
+    <div search-result></div>
+    <!-- they both achieve the same thing (considering no restrictions in the directive) -->
+
+    
+    <!-- Other types that are not in the directive by default -->
+    <!-- <div class="search-result"></div> -->
+    <!-- directive: search-result -->
+</div>
